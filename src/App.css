@@ -107,3 +107,21 @@ body {
     transform: translateX(0);
   }
 }
+
+/* ===================== About css ====================== */
+.About-container {
+  text-align: center;
+  width: 50%;
+  margin-top: 3%;
+  justify-self: anchor-center;
+  background: #cdcccc6d;
+  padding: 14px 5px;
+  border-radius: 6px;
+}
+
+.About-para p {
+  background: #ccc7c7;
+  margin: 21px 15px;
+  padding: 1px;
+  border-radius: 6px;
+}

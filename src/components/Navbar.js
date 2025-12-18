@@ -1,6 +1,7 @@
 // import { useState } from "react";
 import React from "react";
 import PropTypes from "prop-types";
+import {Link} from "react-router-dom"
 
 export default function Navbar(props) {
   const navStyle = {
@@ -11,15 +12,16 @@ export default function Navbar(props) {
   return (
     <nav style={navStyle}>
       <div className="navbar" style={navStyle}>
-        <a href="/" className="heading" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>
+        <Link to="/Home" className="heading" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>
           {props.title}
-        </a>  
+        </Link>  
+        
         <ul className="nav-links">
           <li>
-            <a href="/" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>{props.HomeTitle}</a>
+            <Link to="/Home" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>{props.HomeTitle}</Link>
           </li>
           <li>
-            <a href="/" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>{props.AboutTitle}</a>
+            <Link to="/About" style={{color: props.mode === 'dark' ? 'white' : '#1f2937'}}>{props.AboutTitle}</Link>
           </li>
         </ul>
 

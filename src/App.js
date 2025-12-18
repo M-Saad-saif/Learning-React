@@ -2,7 +2,10 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Textarea from "./components/Textarea";
 import Alert from "./components/Alert";
+import About from "./components/About";
 import React, { useState, useEffect } from "react";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -15,7 +18,7 @@ function App() {
     });
 
     setTimeout(() => {
-      setAlert(null)
+      setAlert(null);
     }, 1500);
   };
 
@@ -39,13 +42,8 @@ function App() {
     }
   }, [mode]);
 
-  const appStyle = {
-    color: mode === "dark" ? "white" : "#1f2937",
-    backgroundColor: mode === "dark" ? "#1f2937" : "white",
-  };
-
   return (
-    <div style={appStyle}>
+    <Router>
       <Navbar
         title="LearnReact"
         HomeTitle="Home"
@@ -54,12 +52,25 @@ function App() {
         toggleMode={toggleMode}
       />
 
-      <Alert alert={alert} />
+      <Alert alert={alert}/>
 
       <div className="container my-5">
-        <Textarea showAlert={showAlert} heading="Enter your text here👇" mode={mode} />
+        <Routes>
+          <Route
+            path="/Home"
+            element={
+              <Textarea
+                showAlert={showAlert}
+                heading="Enter your text here👇"
+                mode={mode}
+              />
+            }
+          />
+
+          <Route path="/About" element={<About mode={mode} />} />
+        </Routes>
       </div>
-    </div>
+    </Router>
   );
 }
 
