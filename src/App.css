@@ -59,6 +59,111 @@ body {
 
 }
 
+/* mobile menu button (hamburger) */
+.menu-button {
+  display: none;
+  position: absolute;
+  right: 3.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.menu-button .hamburger {
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  display: block;
+  position: relative;
+}
+
+.menu-button .hamburger::before,
+.menu-button .hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+}
+
+.menu-button .hamburger::before {
+  top: -7px;
+}
+
+.menu-button .hamburger::after {
+  top: 7px;
+}
+
+/* Right-side drawer */
+.mobile-drawer {
+  position: fixed;
+  top: 15%;
+  right: -10px;
+  height: 249px;
+  width: 80%;
+  max-width: 320px;
+  transform: translateX(100%);
+  transition: transform 0.28s ease;
+  z-index: 1500;
+  padding: 1.25rem;
+  box-shadow: -6px 0 18px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+}
+
+
+.mobile-drawer.open {
+  transform: translateX(-50px);
+}
+
+.drawer-close {
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: inherit;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.drawer-nav {
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.drawer-nav a {
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+.drawer-mode-btn {
+  margin-top: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* overlay */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+  z-index: 1400;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  backdrop-filter: blur(6px);
+}
+
 /* ===================== textarea css ====================== */
 .container button {
   background-color: #b0b0b03c;
@@ -124,4 +229,29 @@ body {
   margin: 21px 15px;
   padding: 1px;
   border-radius: 6px;
+}
+
+/* Responsive: hide desktop nav on small screens and show hamburger */
+@media (max-width: 768px) {
+  .nav-links li {
+    display: none;
+  }
+
+  .btns {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+    color: inherit;
+    right: 15px;
+  }
+
+  .heading {
+    left: 1rem;
+  }
+
+  .About-container {
+    width: 100% ;
+  }
 }

@@ -47,6 +47,7 @@ export default function Textarea(props) {
         <button
           type="button"
           className="btn btn-outline-secondary my-2 mx-2"
+          disabled={text.length === 0}
           onClick={handleUPClick}
         >
           Convert to Upper case
@@ -55,6 +56,7 @@ export default function Textarea(props) {
         <button
           type="button"
           className="btn btn-outline-secondary my-2 mx-2"
+          disabled={text.length === 0}
           onClick={handleLOClick}
         >
           Convert to Lower case
@@ -63,6 +65,7 @@ export default function Textarea(props) {
         <button
           type="button"
           className="btn btn-outline-secondary my-2 mx-2"
+          disabled={text.length === 0}
           onClick={handleCLearClick}
         >
           Clear All
@@ -72,15 +75,27 @@ export default function Textarea(props) {
       <div className="container my-3">
         <h4>Your text summary</h4>
         <p>
-          {text.split(" ").length} words and {text.length} characters
+          {/* counting the words and removing the 1st word */}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split(" ").length} minutes to read</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          minutes to read
+        </p>
         <h2>Preview</h2>
         <div id="Preview-container">
           <p>
             {text.length > 0
               ? text
-              : "Enter text in the above text area to preview"}
+              : "Nothing to preview"}
           </p>
         </div>
       </div>
@@ -92,3 +107,5 @@ Textarea.propTypes = {
   heading: PropTypes.string.isRequired,
   mode: PropTypes.string.isRequired,
 };
+
+
