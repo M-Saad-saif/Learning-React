@@ -77,7 +77,7 @@ export default function Textarea(props) {
         <p>
           {/* counting the words and removing the 1st word */}
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}
