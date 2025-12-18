@@ -17,7 +17,7 @@ export default function Navbar(props) {
     <nav style={navStyle}>
       <div className="navbar" style={navStyle}>
         <Link
-          to="/Home"
+          to="/"
           className="heading"
           style={{ color: props.mode === "dark" ? "white" : "#1f2937" }}
         >
@@ -35,7 +35,7 @@ export default function Navbar(props) {
         <ul className="nav-links">
           <li>
             <Link
-              to="/Home"
+              to="/"
               style={{ color: props.mode === "dark" ? "white" : "#1f2937" }}
             >
               {props.HomeTitle}
@@ -95,7 +95,7 @@ export default function Navbar(props) {
           </button>
           <nav className="drawer-nav">
             <Link
-              to="/Home"
+              to="/"
               onClick={closeDrawer}
               style={{ color: navStyle.color }}
             >

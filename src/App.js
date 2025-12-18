@@ -57,7 +57,7 @@ function App() {
       <div className="container my-5">
         <Routes>
           <Route
-            path="/Home"
+            path="/"
             element={
               <Textarea
                 showAlert={showAlert}
